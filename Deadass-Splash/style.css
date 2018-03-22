@@ -1,0 +1,240 @@
+html, body {
+  width: 100%;
+  height: 100%;
+  background: #21252B;
+  font-family: 'adilight',Arial,Helvetica,Verdana,sans-serif;
+  color: #F2F3F5;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    border: 1px solid black;
+    border-spacing: 0;
+    border: 1px solid black;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 2px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 0;
+  margin-bottom: 24px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+label, input, textarea, select {
+  float: left;
+}
+
+label {
+  color: #9a9b9b !important;
+  font-weight: lighter !important;
+  text-transform: uppercase;
+  transition: all 0.1s;
+  font-size: 12px !important;
+  width: 100%;
+}
+
+input, textarea, select, button {
+  background: #282C34;
+  height: 30px;
+  border: 1px solid;
+  margin-bottom: 10px;
+}
+
+#removeAllCartTasks {
+  float: left;
+}
+
+.card-info {
+  width: 40%;
+}
+
+.div-loadSave {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.div-loadSave2 {
+  margin-top: 70px;
+}
+
+.div-tab {
+  width: 100%;
+  height: calc(100% - 40px);
+  background: #282C34;
+  color: #F2F3F5;
+  padding-left: 7px;
+  padding-right: 7px;
+  padding-top: 7px ;
+}
+
+.div-top {
+  width: 100%;
+  height: 40px;
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+
+.div-tabSelect {
+  padding-top:  5px;
+  padding-bottom:  5px;
+  width: calc(100% / 5);
+  height: 100%;
+  float: left;
+  border: 1px solid #1E1E1E;
+  border-right: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.div-tabSelect-current {
+  background: #282C34;
+  border: 0;
+  border-left: 1px solid #1E1E1E;
+}
+
+.left {
+  margin-right: 5px;
+}
+
+.right {
+  margin-left: 5px;
+}
+
+.full-height {
+  height: 100%;
+}
+
+.mid {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.action {
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
+
+.div-region {
+  height: 80%;
+  width: 100%;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.half-width {
+  width: 49%;
+  float: left;
+}
+
+.half-width.left {
+  margin-right: 5px;
+}
+
+.half-width.right {
+  margin-left: 5px;
+}
+
+.input.input-loadProfile {
+  width: calc(33% - 5px);
+  margin-right: 5px;
+}
+
+.input.input-testbich {
+  width: calc(66% - 5px);
+  margin-left: 5px;
+}
+
+.input.input-profileName {
+  width: calc(40% - 5px);
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.input.input-giftCards {
+  width: 100%;
+  height: 155px;
+  resize: none;
+}
+
+.input.input-country {
+  width: 130px;
+  margin-right: 5px;
+  margin-left: 5px;
+}
+
+.input.input-state {
+  width: 130px;
+  margin-left: 5px;
+}
+
+.input.input-city {
+  width: calc(75% - 290px);
+  margin-right: 5px;
+}
+
+.input.input-zip {
+  width: 25%;
+  margin-right: 5px;
+  margin-left: 5px;
+}
+
+.input.input-sizes {
+  width: calc(15% - 5px);
+  height: 30%;
+  resize: none;
+}
+
+.input.input-cookies {
+  width: calc(85% - 5px);
+  height: 30%;
+  resize: none;
+}
+
+.input.input-proxies {
+  width: 100%;
+  height: 30%;
+  resize: none;
+}
+
+.input.input-apikeys {
+  width: 100%;
+  height: 35%;
+  resize: none;
+}
+
+.input.input-formJson {
+  width: 100%;
+  height: 50%;
+  resize: none;
+}
+
+.tab-img {
+  margin: 0;
+  margin-right: 8px;
+  height: 80%;
+  display: block;
+}
+
+.scroll-table {
+    display: block;
+    border: 1px solid;
+    height: calc(100% - 75px);
+    overflow-y: scroll;
+    margin-bottom: 5px;
+}
+
+h1, h2 ,h3, h4, h5 {
+  margin-top: 8px;
+  margin-bottom: 3px;
+}

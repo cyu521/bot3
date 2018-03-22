@@ -1,0 +1,26 @@
+{
+  "name": "deadass-splash",
+  "productName": "deadass-splash",
+  "version": "1.0.0",
+  "description": "Adidas Queue Bot",
+  "main": "main.js",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.1",
+    "jquery": "^3.2.1",
+    "nightmare": "^2.10.0",
+    "nightmarejs": "0.0.1",
+    "request": "^2.81.0"
+  },
+  "devDependencies": {
+    "asar": "^0.13.0",
+    "electron": "^1.8.4",
+    "electron-packager": "^8.7.1"
+  },
+  "scripts": {
+    "build-osx": "electron-packager . --platform darwin --overwrite --asar --out ./dist ",
+    "build-win": "electron-packager . --platform win32 --overwrite --asar --out ./dist && xcopy \"./node_modules/electron\" \"./dist/deadass-splash-win32-x64/node_modules/electron\" /i /E",
+    "start": "electron ."
+  },
+  "author": "@hunter_bdm",
+  "license": "ISC"
+}
