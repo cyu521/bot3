@@ -446,7 +446,7 @@ class BruteforceTask {
                     this.enableButton('fillAtc');
                 } else
                     setTimeout(checkForSitekey, 20000);
-          });       
+          });
         }
         checkForSitekey();
       })
@@ -620,6 +620,15 @@ class CartTask {
         }, 250)
     }
 
+    // DhnjhrCA:03AJIzXZ6EoSsYHwY8ONHir5deW71Rg8Acmf4xsFKsp2Y9jFrRwOm1LZ-4VILX3Puto_fAfuql_GEFzkHBG4ZJHvoFbQUUzms4ETiKXGBIQOMOqvju-CzBdy-aOEO-kXV9tFDFeLQcMjbHIYlrmgj3XR01ouc25EOuqOwsFDUMWED7pbfbuBkZVTDA_kFfE5SX_ZRPDGqZHUpaBfYnJYCcGbbODAp8-Mds6XY4hxLTdo8d5eSqN4JGnIAPPiT7D-5d1g80K69VXN4YzI31DivdWT86pzMlyJosLM9lGLNX3JtI3ro0Wvv0dCy52BkbJZAO5Se8VDlbzuSuBzuSUbuIePmqdvitt9V0oyU4HYBJZkSOyrztDrdcXH3OyVZFz_v4TLHB4ZkCPCaHUxee6JJkezLRSWFht57H9eteYa0hCItYSuVT4dPyOE8
+    // Quantity:1
+    // add-to-cart-button:
+    // g-recaptcha-response:03AJIzXZ6EoSsYHwY8ONHir5deW71Rg8Acmf4xsFKsp2Y9jFrRwOm1LZ-4VILX3Puto_fAfuql_GEFzkHBG4ZJHvoFbQUUzms4ETiKXGBIQOMOqvju-CzBdy-aOEO-kXV9tFDFeLQcMjbHIYlrmgj3XR01ouc25EOuqOwsFDUMWED7pbfbuBkZVTDA_kFfE5SX_ZRPDGqZHUpaBfYnJYCcGbbODAp8-Mds6XY4hxLTdo8d5eSqN4JGnIAPPiT7D-5d1g80K69VXN4YzI31DivdWT86pzMlyJosLM9lGLNX3JtI3ro0Wvv0dCy52BkbJZAO5Se8VDlbzuSuBzuSUbuIePmqdvitt9V0oyU4HYBJZkSOyrztDrdcXH3OyVZFz_v4TLHB4ZkCPCaHUxee6JJkezLRSWFht57H9eteYa0hCItYSuVT4dPyOE8
+    // pid:CG6420_550
+    // request:ajax
+    // responseformat:json
+    // sessionSelectedStoreID:null
+
     let atc = () => {
       this.setStatus('Getting Captcha');
       waitForCaptcha((captchaRes) => {
@@ -651,6 +660,7 @@ class CartTask {
         }, (err, resp, body) => {
           if(err) {
               this.setStatus('ATC Failed: ' + err);
+              this.console.log(err);
               this.setColor('red');
           }
           else if(resp.statusCode != 200) {
