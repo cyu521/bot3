@@ -435,15 +435,22 @@ class BruteforceTask {
         this.setStatus('In Queue');
         this.enableButton('copyCookies');
         this.enableButton('copyHtml');
+		var Face= this;
         let checkForSitekey = () => {
           this.nightmare.evaluate(function() {
-              return typeof CAPTCHA_KEY !== 'undefined';
+				if(document.querySelector('#logo > div > h3') != null){
+					 return document.querySelector('#logo > div > h3').innerText;
+				}else{
+					return false;
+				}
           })
             .then(function(hasSiteKey) {
                 if (hasSiteKey) {
-                    this.setStatus('Through Queue');
-                    this.setColor('green');
-                    this.enableButton('fillAtc');
+                    Face.setStatus( hasSiteKey);
+					if(hasSiteKey == "YOU'RE ALMOST THERE…"){
+						Face.setColor('green');
+						Face.enableButton('fillAtc');
+					}
                 } else
                     setTimeout(checkForSitekey, 20000);
           });
@@ -628,13 +635,16 @@ class CartTask {
         let formJson = settings['formJsonUS'];
         formJson = formJson.replace('{$sku}', this.sku);
         formJson = formJson.replace('{$captcha}', captchaRes);
+		formJson = formJson.replace('{$captcha}', captchaRes);
+
         formJson = formJson.replace('{$sizeSku}', sizeSku);
+		console.log(formJson);
         formJson = JSON.parse(formJson);
         //mainWin.webContents.send('copy' , formJson['action']);
         /* ATC */
         request({
           method: 'post',
-          url: formJson['action'],
+          url: 'http://www.adidas.com/on/demandware.store/Sites-adidas-US-Site/default/Cart-MiniAddProduct',
           jar: this.cookieJar,
           proxy: this.proxy == 'localhost' ? undefined : this.proxyFormatted,
           headers: {
@@ -650,14 +660,17 @@ class CartTask {
           followAllRedirects: true
         }, (err, resp, body) => {
           if(err) {
-              this.setStatus('ATC Failed: ' + err);
+              this.setStatus('ATC Failed1: ' + err);
               this.setColor('red');
           }
           else if(resp.statusCode != 200) {
-              this.setStatus('ATC Failed: ' + resp.statusCode);
+              this.setStatus('ATC Failed2: ' + resp.statusCode);
               this.setColor('red');
           }
           else {
+			  console.log("resp:" +resp);
+			  			  console.log("body:" +body);
+
             /* Check Cart */
             this.setStatus('Checking Cart');
             this.enableButton('copyCookies');
@@ -684,8 +697,11 @@ class CartTask {
                 this.setStatus('Cart Check Failed: ' + resp.statusCode);
               }
               else {
+				  				console.log(body);
+
                 body = body.replace(/\s+/g, " ").trim();
                 body = body.replace('"', '').replace('"', '');
+				console.log(body);
                 if(body == '1') {
                   this.setStatus('ATC Success');
                   this.setColor('green');
@@ -693,7 +709,7 @@ class CartTask {
                   //checkout();
                 }
                 else {
-                  this.setStatus('ATC Failed');
+                  this.setStatus('ATC Failed3');
                   this.setColor('red');
                 }
               }
@@ -984,7 +1000,7 @@ class CartTask {
         /* ATC */
         request({
           method: 'post',
-          url: formJson['action'],
+          url: 'http://www.adidas.com/on/demandware.store/Sites-adidas-US-Site/default/Cart-MiniAddProduct',
           jar: this.cookieJar,
           headers: {
               'Accept': '*/*',
@@ -999,11 +1015,11 @@ class CartTask {
           followAllRedirects: true
         }, (err, resp, body) => {
           if(err) {
-              this.setStatus('ATC Failed: ' + err);
+              this.setStatus('ATC Failed4: ' + err);
               this.setColor('red');
           }
           else if(resp.statusCode != 200) {
-              this.setStatus('ATC Failed: ' + resp.statusCode);
+              this.setStatus('ATC Failed5: ' + resp.statusCode);
               this.setColor('red');
           }
           else {
@@ -1040,7 +1056,7 @@ class CartTask {
                   this.setColor('green');
                 }
                 else {
-                  this.setStatus('ATC Failed');
+                  this.setStatus('ATC Failed6');
                   this.setStatus(body);
                   this.setColor('red');
                 }
